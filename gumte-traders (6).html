@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gumte Traders – SJR Tyres Dealer</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060e1f;--bg2:#0b1a35;
+  --blue:#1565c0;--blue2:#1e88e5;--blue3:#42a5f5;
+  --cyan:#00e5ff;--orange:#ff6d00;--orange2:#ff9100;
+  --gold:#ffd600;--white:#ffffff;--muted:#7ea8d4;
+  --card:rgba(11,26,53,0.92);--border:rgba(0,229,255,0.18);
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Exo 2',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;overflow-x:hidden;}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 10%,rgba(21,101,192,.28) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 90%,rgba(0,229,255,.12) 0%,transparent 70%),
+    repeating-linear-gradient(60deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px);
+}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px;}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:900;
+  background:rgba(6,14,31,.97);backdrop-filter:blur(24px);
+  border-bottom:1.5px solid var(--border);
+  box-shadow:0 2px 40px rgba(0,229,255,.08);
+}
+.hdr{
+  max-width:1400px;margin:0 auto;padding:0 20px;
+  height:68px;display:flex;align-items:center;justify-content:flex-start;gap:12px;
+}
+.hdr nav{margin-left:auto;}
+.hdr .cart-btn{margin-left:12px;}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.logo-ring{
+  width:48px;height:48px;border-radius:50%;
+  border:2.5px solid var(--cyan);
+  background:linear-gradient(135deg,#0b1a35,#0d2246);
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+  box-shadow:0 0 20px rgba(0,229,255,.45);
+  animation:glow-pulse 3s ease-in-out infinite;
+}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 20px rgba(0,229,255,.45);}50%{box-shadow:0 0 38px rgba(0,229,255,.85),0 0 60px rgba(0,229,255,.25);}}
+.logo-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;letter-spacing:1.5px;background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo-sub{font-size:10px;color:var(--orange2);letter-spacing:3px;text-transform:uppercase;font-weight:700;}
+nav{display:flex;gap:4px;}
+nav a{padding:7px 13px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:all .2s;}
+nav a:hover{color:var(--cyan);background:rgba(0,229,255,.08);}
+.cart-btn{
+  position:relative;cursor:pointer;
+  background:linear-gradient(135deg,var(--orange),var(--orange2));
+  border:none;padding:10px 20px;border-radius:10px;
+  color:#fff;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:.5px;display:flex;align-items:center;gap:8px;
+  box-shadow:0 4px 20px rgba(255,109,0,.4);transition:all .2s;
+}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,109,0,.55);}
+.cart-count{background:#fff;color:var(--orange);border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:72px 20px 60px;text-align:center;overflow:hidden;}
+.hero::after{content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:800px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.3);
+  border-radius:100px;padding:6px 18px;font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--cyan);margin-bottom:24px;
+  animation:fd .6s ease both;
+}
+@keyframes fd{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:none;}}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:clamp(38px,8vw,84px);font-weight:700;line-height:1;letter-spacing:2px;animation:fd .7s .1s ease both;}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue3),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{margin:18px auto 0;color:var(--muted);font-size:16px;max-width:500px;line-height:1.7;animation:fd .7s .2s ease both;}
+.hero-stats{margin-top:44px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap;animation:fd .7s .3s ease both;}
+.stat-num{font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;color:var(--cyan);}
+.stat-lbl{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+
+/* CONTROLS */
+.controls{
+  position:relative;z-index:2;
+  max-width:1400px;margin:0 auto;padding:0 20px 32px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.search-wrap{flex:1;min-width:200px;position:relative;}
+.search-wrap input{
+  width:100%;padding:12px 16px 12px 44px;
+  background:var(--card);border:1.5px solid var(--border);
+  border-radius:10px;color:#fff;font-family:'Exo 2',sans-serif;font-size:14px;outline:none;transition:border-color .2s;
+}
+.search-wrap input:focus{border-color:var(--cyan);}
+.search-wrap input::placeholder{color:var(--muted);}
+.si{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:17px;}
+.fb{
+  padding:11px 14px;border-radius:10px;border:1.5px solid var(--border);
+  background:var(--card);color:var(--muted);font-family:'Exo 2',sans-serif;
+  font-size:11px;font-weight:800;letter-spacing:.8px;cursor:pointer;text-transform:uppercase;
+  transition:all .2s;white-space:nowrap;
+}
+.fb:hover,.fb.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,229,255,.08);}
+
+/* GRID */
+.grid{
+  position:relative;z-index:2;
+  max-width:1400px;margin:0 auto;padding:0 20px 70px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:18px;
+}
+.card{
+  background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:20px;display:flex;flex-direction:column;gap:12px;
+  transition:all .25s;position:relative;overflow:hidden;
+  animation:fadein .5s ease both;
+}
+@keyframes fadein{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,255,.05) 0%,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:0;}
+.card-cat,.card-name,.card-price,.qty-row,.add-btn{position:relative;z-index:1;}
+.card:hover{border-color:rgba(0,229,255,.45);transform:translateY(-5px);box-shadow:0 14px 44px rgba(0,229,255,.12),0 4px 18px rgba(0,0,0,.5);}
+.card:hover::before{opacity:1;}
+.card-cat{font-size:9px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px;display:inline-block;width:fit-content;}
+.c-ml{background:rgba(21,101,192,.25);color:#90caf9;}
+.c-mt{background:rgba(0,229,255,.12);color:var(--cyan);}
+.c-sl{background:rgba(255,109,0,.18);color:var(--orange2);}
+.c-st{background:rgba(255,214,0,.15);color:var(--gold);}
+.c-sc{background:rgba(30,136,229,.2);color:#90caf9;}
+.c-rk{background:rgba(255,109,0,.25);color:#ffab40;}
+.card-name{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;line-height:1.3;color:#e3f2fd;}
+.card-price{font-family:'Rajdhani',sans-serif;font-size:30px;font-weight:700;color:var(--cyan);display:flex;align-items:baseline;gap:4px;}
+.card-price small{font-size:13px;color:var(--muted);font-weight:500;font-family:'Exo 2',sans-serif;}
+.qty-row{display:flex;align-items:center;gap:10px;}
+.qb{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--border);background:rgba(255,255,255,.05);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.qb:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,229,255,.08);}
+.qv{font-size:16px;font-weight:700;min-width:24px;text-align:center;}
+.add-btn{
+  margin-top:auto;padding:11px;border-radius:10px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .2s;box-shadow:0 4px 16px rgba(21,101,192,.35);
+}
+.add-btn:hover{background:linear-gradient(135deg,var(--blue2),var(--cyan));box-shadow:0 6px 24px rgba(0,229,255,.3);}
+.add-btn.added{background:linear-gradient(135deg,#1b5e20,#2e7d32)!important;box-shadow:0 4px 16px rgba(46,125,50,.35)!important;}
+.empty{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--muted);}
+.empty-icon{font-size:64px;opacity:.4;margin-bottom:16px;}
+
+/* CART PANEL */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:1000;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(5px);}
+.cart-overlay.open{opacity:1;pointer-events:all;}
+.cart-panel{
+  position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100vw;
+  background:linear-gradient(180deg,#0b1733,#060e1f);
+  border-left:1.5px solid var(--border);z-index:1001;
+  transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+  box-shadow:-10px 0 70px rgba(0,0,0,.7);
+}
+.cart-panel.open{transform:none;}
+.cp-head{
+  padding:22px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cp-head h3{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;display:flex;align-items:center;gap:10px;}
+.cp-close{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.cp-close:hover{border-color:var(--cyan);color:var(--cyan);}
+.cp-items{flex:1;overflow-y:auto;padding:16px;}
+.ci{display:flex;align-items:flex-start;gap:12px;padding:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;transition:all .2s;}
+.ci:hover{border-color:rgba(0,229,255,.3);}
+.ci-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.ci-info{flex:1;min-width:0;}
+.ci-name{font-size:13px;font-weight:600;color:#e3f2fd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ci-cat{font-size:10px;color:var(--muted);margin-top:2px;}
+.ci-price{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--cyan);margin-top:4px;}
+.ci-qty{display:flex;align-items:center;gap:6px;margin-top:6px;}
+.ci-qty button{width:24px;height:24px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,.05);color:#fff;font-size:14px;cursor:pointer;transition:.15s;}
+.ci-qty button:hover{border-color:var(--cyan);color:var(--cyan);}
+.ci-qty span{font-size:13px;font-weight:700;min-width:20px;text-align:center;}
+.ci-del{background:rgba(239,83,80,.15);border:1px solid rgba(239,83,80,.3);color:#ef5350;border-radius:7px;width:30px;height:30px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:.2s;flex-shrink:0;}
+.ci-del:hover{background:rgba(239,83,80,.3);}
+.cart-empty{text-align:center;padding:70px 20px;color:var(--muted);}
+.cart-empty .ce-icon{font-size:58px;opacity:.4;margin-bottom:14px;}
+.cp-footer{padding:20px;border-top:1px solid var(--border);background:rgba(6,14,31,.9);}
+.summary{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:14px;margin-bottom:14px;}
+.sum-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px;}
+.sum-total{display:flex;justify-content:space-between;font-family:'Rajdhani',sans-serif;font-size:21px;font-weight:700;color:#fff;padding-top:8px;border-top:1px solid var(--border);margin-top:8px;}
+.sum-total span:last-child{color:var(--cyan);}
+.wa-btn{
+  width:100%;padding:15px;border-radius:12px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;font-family:'Exo 2',sans-serif;font-size:15px;font-weight:800;
+  letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 6px 24px rgba(37,211,102,.35);transition:all .2s;
+}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(37,211,102,.5);}
+.wa-icon{width:22px;height:22px;fill:currentColor;}
+/* ORDER FORM */
+.order-form{margin-bottom:14px;}
+.of-field{margin-bottom:10px;}
+.of-label{display:block;font-size:10px;font-weight:800;letter-spacing:2px;color:var(--cyan);margin-bottom:5px;text-transform:uppercase;}
+.req{color:var(--orange2);}
+.of-input{
+  width:100%;padding:11px 14px;
+  background:rgba(255,255,255,.06);
+  border:1.5px solid var(--border);
+  border-radius:10px;color:#fff;
+  font-family:'Exo 2',sans-serif;font-size:14px;outline:none;
+  transition:border-color .2s;
+}
+.of-input:focus{border-color:var(--cyan);background:rgba(0,229,255,.06);}
+.of-input::placeholder{color:rgba(126,168,212,.5);}
+.clear-btn{
+  width:100%;margin-top:10px;padding:12px;border-radius:10px;
+  border:1.5px solid rgba(239,83,80,.3);
+  background:rgba(239,83,80,.08);
+  color:#ef9a9a;font-family:'Exo 2',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.clear-btn:hover{background:rgba(239,83,80,.2);border-color:rgba(239,83,80,.6);color:#fff;}
+
+/* TOAST */
+.toast{
+  position:fixed;bottom:28px;left:50%;
+  transform:translateX(-50%) translateY(90px);
+  background:linear-gradient(135deg,#1b3a6b,#0d2246);
+  border:1.5px solid rgba(0,229,255,.4);
+  border-radius:12px;padding:12px 24px;
+  font-size:13px;font-weight:600;color:#e3f2fd;
+  z-index:2000;transition:transform .3s cubic-bezier(.4,0,.2,1);
+  white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,.5);
+  display:flex;align-items:center;gap:10px;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* FOOTER */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);padding:38px 20px;
+  text-align:center;background:rgba(6,14,31,.85);
+}
+.ft-logo{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+footer p{color:var(--muted);font-size:13px;margin-bottom:10px;}
+footer a.wa-link{display:inline-flex;align-items:center;gap:6px;color:#25D366;text-decoration:none;font-weight:700;font-size:14px;}
+footer a.wa-link:hover{text-decoration:underline;}
+
+@media(max-width:640px){
+  nav{display:none;}
+  .hero h1{font-size:38px;}
+  .hero-stats{gap:22px;}
+  .cart-panel{width:100vw;}
+  .controls{gap:8px;}
+  .fb{padding:9px 10px;font-size:10px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <a class="logo" href="#">
+      <div class="logo-ring">⚙️</div>
+      <div>
+        <div class="logo-name">GUMTE TRADERS</div>
+        <div class="logo-sub">SJR Tyres Authorized Dealer</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#moto">Motorcycle</a>
+      <a href="#scooter">Scooter</a>
+      <a href="#scv">SCV</a>
+      <a href="#rickshaw">Rickshaw</a>
+    </nav>
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">🏪 SJR Tyres · Official Dealer · Premium Quality</div>
+  <h1>GUMTE <em>TRADERS</em></h1>
+  <p>Your trusted source for SJR Tyres — Motorcycle, Scooter, SCV & Rickshaw. Genuine quality you can count on.</p>
+  <div class="hero-stats">
+    <div><div class="stat-num">40+</div><div class="stat-lbl">Products</div></div>
+    <div><div class="stat-num">4</div><div class="stat-lbl">Categories</div></div>
+    <div><div class="stat-num">24/7</div><div class="stat-lbl">WhatsApp Orders</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-lbl">Genuine</div></div>
+  </div>
+</section>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="si">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search by size, brand or type…" oninput="filterProducts()">
+  </div>
+  <button class="fb active" onclick="setFilter('all',this)">All</button>
+  <button class="fb" onclick="setFilter('MOTORCYCLE T/L',this)">Moto T/L</button>
+  <button class="fb" onclick="setFilter('MOTORCYCLE TT',this)">Moto TT</button>
+  <button class="fb" onclick="setFilter('SCOOTER T/L',this)">Scooter T/L</button>
+  <button class="fb" onclick="setFilter('SCOOTER TT',this)">Scooter TT</button>
+  <button class="fb" onclick="setFilter('SCV',this)">SCV</button>
+  <button class="fb" onclick="setFilter('RICKSHAW',this)">Rickshaw</button>
+</div>
+
+<div class="grid" id="productGrid"></div>
+
+<!-- Cart -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cp-head">
+    <h3>🛒 Your Cart</h3>
+    <button class="cp-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cp-items" id="cartItems"></div>
+  <div class="cp-footer">
+    <div class="summary" id="summary" style="display:none">
+      <div class="sum-row"><span>Total Amount</span><span id="sumItems" style="font-size:11px;color:var(--muted)"></span></div>
+      <div class="sum-total"><span>₹</span><span id="sumTotal">0</span></div>
+    </div>
+    <!-- Customer Details Form -->
+    <div class="order-form">
+      <div class="of-field">
+        <label class="of-label">YOUR NAME <span class="req">*</span></label>
+        <input type="text" id="custName" class="of-input" placeholder="Enter your full name">
+      </div>
+      <div class="of-field">
+        <label class="of-label">PHONE NUMBER <span class="req">*</span></label>
+        <input type="tel" id="custPhone" class="of-input" placeholder="+91 XXXXXXXXXX">
+      </div>
+      <div class="of-field">
+        <label class="of-label">DELIVERY ADDRESS <span style="color:var(--muted);font-size:9px">(OPTIONAL)</span></label>
+        <input type="text" id="custAddr" class="of-input" placeholder="Street, City">
+      </div>
+    </div>
+    <button class="wa-btn" onclick="placeOrder()">
+      <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.306A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      Place Order via WhatsApp
+    </button>
+    <button class="clear-btn" onclick="clearCart()">🗑️ Clear Cart</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">✅ Added to cart!</div>
+
+<footer>
+  <div class="ft-logo">GUMTE TRADERS</div>
+  <p>SJR Tyres Authorized Dealer · Bengaluru, Karnataka, India</p>
+  <a class="wa-link" href="https://wa.me/916361016043" target="_blank">📱 +91 6361016043</a>
+</footer>
+
+<script>
+const PRODUCTS = [
+  {id:1,name:'100-90/17 Speed X T/L',price:1380,cat:'MOTORCYCLE T/L'},
+  {id:2,name:'80-100/17 Zaff Satr T/L',price:1030,cat:'MOTORCYCLE T/L'},
+  {id:3,name:'2.75-17 Zaff Star T/L',price:930,cat:'MOTORCYCLE T/L'},
+  {id:4,name:'3.00-17 SM T/L & RS T/L',price:1140,cat:'MOTORCYCLE T/L'},
+  {id:5,name:'90-90/17 Zaff Star T/L',price:1050,cat:'MOTORCYCLE T/L'},
+  {id:6,name:'100-90/18 Zaff Plus T/L',price:1435,cat:'MOTORCYCLE T/L'},
+  {id:7,name:'3.00-18 SM T/L & RS T/L',price:1200,cat:'MOTORCYCLE T/L'},
+  {id:8,name:'80-100/18 Strong Miller Plus T/L',price:1100,cat:'MOTORCYCLE T/L'},
+  {id:9,name:'80-100/18 Zaff Star T/L',price:1040,cat:'MOTORCYCLE T/L'},
+  {id:10,name:'110-90/18 Rider-X 10 T/L',price:1640,cat:'MOTORCYCLE T/L'},
+  {id:11,name:'90-90/19 Zaff Star T/L',price:1445,cat:'MOTORCYCLE T/L'},
+  {id:12,name:'110-80/17 Z-Royal TL',price:1450,cat:'MOTORCYCLE T/L'},
+  {id:13,name:'80-100/18 Z Maxx T/L',price:1130,cat:'MOTORCYCLE T/L'},
+  {id:14,name:'2.50-16 Fire Rib TT (Only Tyre)',price:595,cat:'MOTORCYCLE TT'},
+  {id:15,name:'2.50-16 Strong Miller TT (Only Tyre)',price:675,cat:'MOTORCYCLE TT'},
+  {id:16,name:'2.75-17 Fire Rib TT',price:965,cat:'MOTORCYCLE TT'},
+  {id:17,name:'2.75-17 Zaff Star TT',price:980,cat:'MOTORCYCLE TT'},
+  {id:18,name:'2.75-18 Fire Rib TT',price:990,cat:'MOTORCYCLE TT'},
+  {id:19,name:'2.75-18 Zaff Star TT',price:1035,cat:'MOTORCYCLE TT'},
+  {id:20,name:'2.75-18 Strong Miller TT',price:1135,cat:'MOTORCYCLE TT'},
+  {id:21,name:'3.00-17 SM TT & RS TT',price:1130,cat:'MOTORCYCLE TT'},
+  {id:22,name:'3.00-18 SM TT & RS TT',price:1140,cat:'MOTORCYCLE TT'},
+  {id:23,name:'3.00-18 Super Zapp TT',price:1160,cat:'MOTORCYCLE TT'},
+  {id:24,name:'90-100/10 Nylo Power T/L',price:820,cat:'SCOOTER T/L'},
+  {id:25,name:'90-100/10 Strong Miller Plus T/L',price:820,cat:'SCOOTER T/L'},
+  {id:26,name:'90-90/12 Nylo Power T/L',price:860,cat:'SCOOTER T/L'},
+  {id:27,name:'90-90/12 Strong Miller Plus T/L',price:860,cat:'SCOOTER T/L'},
+  {id:28,name:'90-100/10 Ocean T/L',price:860,cat:'SCOOTER T/L'},
+  {id:29,name:'3.00-10 Nylo Power T/L',price:695,cat:'SCOOTER T/L'},
+  {id:30,name:'100-80/12 Ocean T/L',price:1060,cat:'SCOOTER T/L'},
+  {id:31,name:'110-80/12 Ocean T/L',price:1250,cat:'SCOOTER T/L'},
+  {id:32,name:'3-00-10 Speed Z-1',price:745,cat:'SCOOTER T/L'},
+  {id:33,name:'3.50-10 Strong Miller TT',price:890,cat:'SCOOTER TT'},
+  {id:34,name:'90-100/10 Nylo Power TT',price:890,cat:'SCOOTER TT'},
+  {id:35,name:'155/80-12 Super Rib TT',price:2530,cat:'SCV'},
+  {id:36,name:'155/80-12 Super Lug TT',price:2690,cat:'SCV'},
+  {id:37,name:'185/80-14 Super Rib',price:3890,cat:'SCV'},
+  {id:38,name:'4.00-8 Arya TT (Only Tyre)',price:990,cat:'RICKSHAW'},
+  {id:39,name:'4.50-10 Super 91 TT',price:1845,cat:'RICKSHAW'},
+  {id:40,name:'4.50-10 Super XL 91 Lug',price:1900,cat:'RICKSHAW'},
+];
+
+const CAT_CLASS={'MOTORCYCLE T/L':'c-ml','MOTORCYCLE TT':'c-mt','SCOOTER T/L':'c-sl','SCOOTER TT':'c-st','SCV':'c-sc','RICKSHAW':'c-rk'};
+const CAT_ICON={'MOTORCYCLE T/L':'🏍️','MOTORCYCLE TT':'🏍️','SCOOTER T/L':'🛵','SCOOTER TT':'🛵','SCV':'🚐','RICKSHAW':'🛺'};
+
+let cart={}, qty={}, activeFilter='all';
+PRODUCTS.forEach(p=>qty[p.id]=1);
+
+function renderProducts(list){
+  const g=document.getElementById('productGrid');
+  g.innerHTML='';
+  if(!list.length){
+    g.innerHTML='<div class="empty"><div class="empty-icon">🔍</div><p>No tyres found. Try a different search!</p></div>';
+    return;
+  }
+  list.forEach((p,i)=>{
+    const inCart=!!cart[p.id];
+    const d=document.createElement('div');
+    d.className='card';
+    d.style.animationDelay=(i*.04)+'s';
+    d.innerHTML=`
+      <span class="card-cat ${CAT_CLASS[p.cat]||''}">${p.cat}</span>
+      <div class="card-name">${CAT_ICON[p.cat]||'🔵'} ${p.name}</div>
+      <div class="card-price">₹${p.price.toLocaleString('en-IN')}<small>&nbsp;/ piece</small></div>
+      <div class="qty-row">
+        <button class="qb" onclick="changeQty(${p.id},-1)">−</button>
+        <span class="qv" id="qv${p.id}">${qty[p.id]}</span>
+        <button class="qb" onclick="changeQty(${p.id},1)">+</button>
+        <span style="font-size:11px;color:var(--muted)">units</span>
+      </div>
+      <button class="add-btn${inCart?' added':''}" id="ab${p.id}" onclick="addToCart(${p.id})">
+        ${inCart?'✅ In Cart':'🛒 Add to Cart'}
+      </button>`;
+    g.appendChild(d);
+  });
+}
+
+function changeQty(id,d){
+  qty[id]=Math.max(1,(qty[id]||1)+d);
+  const e=document.getElementById('qv'+id);
+  if(e)e.textContent=qty[id];
+}
+
+function setFilter(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterProducts();
+}
+
+function filterProducts(){
+  const q=document.getElementById('searchInput').value.toLowerCase().trim();
+  let list=PRODUCTS;
+  if(activeFilter!=='all')list=list.filter(p=>p.cat===activeFilter);
+  if(q)list=list.filter(p=>p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q));
+  renderProducts(list);
+}
+
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p)return;
+  const q=qty[id]||1;
+  if(cart[id])cart[id].qty+=q;
+  else cart[id]={...p,qty:q};
+  const b=document.getElementById('ab'+id);
+  if(b){b.textContent='✅ In Cart';b.classList.add('added');}
+  updateCartUI();
+  showToast('🛒 '+p.name+' added!');
+}
+
+function removeFromCart(id){
+  delete cart[id];
+  filterProducts();
+  updateCartUI();
+}
+
+function changeCartQty(id,d){
+  if(!cart[id])return;
+  cart[id].qty=Math.max(1,cart[id].qty+d);
+  updateCartUI();
+}
+
+function updateCartUI(){
+  const items=Object.values(cart);
+  const count=items.reduce((a,i)=>a+i.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  const container=document.getElementById('cartItems');
+  const sum=document.getElementById('summary');
+  if(!items.length){
+    container.innerHTML='<div class="cart-empty"><div class="ce-icon">🛒</div><p>Your cart is empty.<br>Start adding tyres!</p></div>';
+    sum.style.display='none';
+    return;
+  }
+  container.innerHTML=items.map(item=>`
+    <div class="ci">
+      <div class="ci-icon">${CAT_ICON[item.cat]||'🔵'}</div>
+      <div class="ci-info">
+        <div class="ci-name">${item.name}</div>
+        <div class="ci-cat">${item.cat}</div>
+        <div class="ci-price">₹${(item.price*item.qty).toLocaleString('en-IN')}</div>
+        <div class="ci-qty">
+          <button onclick="changeCartQty(${item.id},-1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeCartQty(${item.id},1)">+</button>
+          <span style="font-size:10px;color:var(--muted)">× ₹${item.price.toLocaleString('en-IN')}</span>
+        </div>
+      </div>
+      <button class="ci-del" onclick="removeFromCart(${item.id})">🗑</button>
+    </div>
+  `).join('');
+  const sub=items.reduce((a,i)=>a+i.price*i.qty,0);
+  const totalUnits=items.reduce((a,i)=>a+i.qty,0);
+  document.getElementById('sumItems').textContent=items.length+' item type(s) · '+totalUnits+' units';
+  document.getElementById('sumTotal').textContent=sub.toLocaleString('en-IN');
+  sum.style.display='block';
+}
+
+function toggleCart(){
+  document.getElementById('cartOverlay').classList.toggle('open');
+  document.getElementById('cartPanel').classList.toggle('open');
+}
+
+function placeOrder(){
+  const items=Object.values(cart);
+  if(!items.length){showToast('⚠️ Cart is empty!');return;}
+  const name=document.getElementById('custName').value.trim();
+  const phone=document.getElementById('custPhone').value.trim();
+  const addr=document.getElementById('custAddr').value.trim();
+  if(!name){showToast('⚠️ Please enter your name!');document.getElementById('custName').focus();return;}
+  if(!phone){showToast('⚠️ Please enter phone number!');document.getElementById('custPhone').focus();return;}
+  let msg='🛒 *New Order — Gumte Traders*\n';
+  msg+='━━━━━━━━━━━━━━━━━━\n';
+  msg+=`👤 *Name:* ${name}\n`;
+  msg+=`📞 *Phone:* ${phone}\n`;
+  if(addr) msg+=`📍 *Address:* ${addr}\n`;
+  msg+='━━━━━━━━━━━━━━━━━━\n';
+  msg+='🏷️ *Order Items:*\n';
+  items.forEach((item,i)=>{
+    msg+=`${i+1}. ${item.name}\n`;
+    msg+=`   Qty: ${item.qty} × ₹${item.price.toLocaleString('en-IN')} = ₹${(item.price*item.qty).toLocaleString('en-IN')}\n`;
+  });
+  const total=items.reduce((a,i)=>a+i.price*i.qty,0);
+  msg+='━━━━━━━━━━━━━━━━━━\n';
+  msg+=`💰 *Total: ₹${total.toLocaleString('en-IN')}*\n\n`;
+  msg+='_Please confirm availability & delivery._';
+  window.open('https://wa.me/916361016043?text='+encodeURIComponent(msg),'_blank');
+}
+
+function clearCart(){
+  cart={};
+  PRODUCTS.forEach(p=>qty[p.id]=1);
+  document.getElementById('custName').value='';
+  document.getElementById('custPhone').value='';
+  document.getElementById('custAddr').value='';
+  filterProducts();
+  updateCartUI();
+  showToast('🗑️ Cart cleared!');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+renderProducts(PRODUCTS);
+</script>
+</body>
+</html>
